@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}
+Eliminar envio
+{% endblock title %}
+
+{% block content %}
+<h2>ELIMINAR ENVIO</h2>
+<form method="POST" enctype="multipart/form-data">
+	{% csrf_token %}
+	<h3>¿Desea eliminar el envio?</h3>
+	<br>
+	<button class="btn btn-primary" type="submit">
+		si eliminar  
+	</button>
+	<a class="btn btn-warning" href="/envios/">
+	Cancelar 
+</a>
+
+</form>
+
+
+{% endblock content %}

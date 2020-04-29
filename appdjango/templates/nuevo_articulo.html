@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+AÑADIR ARTICULO
+{% endblock %}
+{% block content %}
+<h2>CREAR ARTICULO</h2>
+<form method="POST" enctype="multipart/form-data">
+	{% csrf_token %}
+	{{form}}
+
+	{% if info %}
+
+<p>{{info}}</p>
+
+<a class="btn btn-warning" href="/articulos/">
+	REGRESAR
+</a>
+{%else%}
+
+<button type="submit">Guardar</button>
+{% endif %}
+
+</form>
+{% endblock %}

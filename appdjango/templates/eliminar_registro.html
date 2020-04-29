@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}
+Eliminar registro
+{% endblock title %}
+
+{% block content %}
+<h2>ELIMINAR REGISTRO</h2>
+<form method="POST" enctype="multipart/form-data">
+	{% csrf_token %}
+	<button class="btn btn-primary" type="submit">
+		si eliminar  
+	</button>
+	<a class="btn btn-warning" href="/registros/">
+	Cancelar 
+</a>
+
+</form>
+
+
+{% endblock content %}

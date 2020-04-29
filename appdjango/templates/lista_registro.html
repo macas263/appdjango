@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %} LISTA DE REGISTROS {% endblock %}
+
+{% block content %}
+
+{% if registros %}
+<h2>Lista Articulos</h2>
+<a class ="btn btn-primary" href="{% url 'nuevo_registro'%}"> Añadir </a>
+<table class="table table-striped table-hover">
+        <thead>
+            <th><h4>FECHA PAGO</h4></th>
+            <th><h4>DETALLE</h4></th>
+            <th><h4>OPCIONES</h4></th>
+
+        </thead>
+
+        <tbody>
+            
+        {% for registro in registros %}
+            <tr>
+            <td>{{registro.fechapago}}</td>
+            <td>{{registro.detallepago}}</td>      
+            <td><a class ="btn btn-success" href="/editarr/{{ registro.id }}"> EDITAR  <a class ="btn btn-info" href="/eliminarr/{{ registro.id }}"> ElIMINAR</a></a></td>
+
+
+            
+        </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+
+{% else %}
+    <h2> No existe ningun regisgtro! </h2>
+{% endif %}
+
+
+{% endblock %}

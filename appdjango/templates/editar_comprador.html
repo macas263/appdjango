@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}
+Editar comprador
+{% endblock title %}
+
+{% block content %}
+<h2>EDITAR COMPRADOR</h2>
+<form method="POST" enctype="multipart/form-data">
+	{% csrf_token %}
+	{{form}}
+	<br>
+	<button class="btn btn-primary">
+		Guardar
+	</button>
+</form>
+{% if comprador %}
+<a class="btn btn-warning" href="/compradores/">
+	REGRESAR
+</a>
+{% endif %}
+{% endblock content %}

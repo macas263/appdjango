@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}
+Editar envios
+{% endblock title %}
+
+{% block content %}
+<h2>EDITAR ENVIO </h2>
+<form method="POST" enctype="multipart/form-data">
+	{% csrf_token %}
+	{{form}}
+	<br>
+	<button class="btn btn-primary">
+		Guardar
+	</button>
+</form>
+{% if envio %}
+<a class="btn btn-warning" href="/envios/">
+	REGRESAR
+</a>
+{% endif %}
+{% endblock content %}

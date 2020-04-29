@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %} lista envios {% endblock %}
+
+{% block content %}
+
+
+<h2>Lista Envios</h2>
+<a class ="btn btn-primary" href="{% url 'nuevo_envio'%}"> Añadir </a>
+<table class="table table-striped table-hover">
+        <thead>
+            <th><h4>FECHA DE ENVIO</h4></th>
+            <th><h4>DIRECCION DE ENVIO</h4></th>
+            <th><h4>OPCIONES</h4></th>
+        </thead>
+
+        <tbody>
+            
+        {% for envio in envios %}
+            <tr>
+            <td>{{envio.fecha_envio}}</td>
+            <td>{{envio.direccion_envio}}</td>
+
+
+            <td><a class ="btn btn-success" href="/editare/{{ envio.id }}"> EDITAR  <a class ="btn btn-info" href="/eliminare/{{ envio.id }}"> ElIMINAR</a></a></td>
+
+            
+        </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+
+
+    
+{% endblock %}

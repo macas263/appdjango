@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %} LISTA DE VENDEDORES {% endblock %}
+
+{% block content %}
+
+{% if vendedores %}
+<h2>Lista Vendedores</h2>
+<a class ="btn btn-primary" href="{% url 'nuevo_vendedor'%}"> Añadir </a>
+<table class="table table-striped table-hover">
+        <thead>
+            <th><h4>NOMBRE</h4></th>
+            <th><h4>APELLIDO</h4></th>
+            <th><h4>DIRECCION</h4></th>
+            <th><h4>CORREO</h4></th>
+            <th><h4>TELEFONO</h4></th>
+            <th><h4>OPCIONES</h4></th>
+        </thead>
+
+        <tbody>
+            
+        {% for vn in vendedores %}
+            <tr>
+            <td>{{vn.nombre}}</td>
+            <td>{{vn.apellido}}</td>
+            <td>{{vn.direccion}}</td> 
+            <td>{{vn.correo}}</td>  
+            <td>{{vn.telefono}}</td>
+   
+
+            
+
+
+            <td><a class ="btn btn-success" href="/editarv/{{ vn.id }}"> EDITAR  <a class ="btn btn-info" href="/eliminarv/{{ vn.id }}"> ElIMINAR</a></a></td>
+
+
+            
+        </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+
+{% else %}
+    <h2> No existe ningun vendedor! </h2>
+{% endif %}
+
+
+{% endblock %}

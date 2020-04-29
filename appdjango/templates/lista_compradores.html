@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %} LISTA DE COMPRADORES {% endblock %}
+
+{% block content %}
+
+{% if compradores %}
+<h2>Lista Compradores</h2>
+<a class ="btn btn-primary" href="{% url 'nuevo_comprador'%}"> Añadir </a>
+<table class="table table-striped table-hover">
+        <thead>
+            <th><h4>NOMBRE</h4></th>
+            <th><h4>APELLIDO</h4></th>
+            <th><h4>DIRECCION</h4></th>
+            <th><h4>CORREO</h4></th>
+            <th><h4>TELEFONO</h4></th>
+            <th><h4>ARTICULO COMPRADO</h4></th>
+            <th><h4>OPCIONES</h4></th>
+
+        </thead>
+
+        <tbody>
+            
+        {% for comprador in compradores %}
+            <tr>
+            <td>{{comprador.nombre}}</td>
+            <td>{{comprador.apellido}}</td>
+            <td>{{comprador.direccion}}</td> 
+            <td>{{comprador.correo}}</td>  
+            <td>{{comprador.telefono}}</td>
+            <td>{{comprador.fk_articulo}}</td>    
+
+            
+
+
+            <td><a class ="btn btn-success" href="/editarc/{{ comprador.id }}"> EDITAR  <a class ="btn btn-info" href="/eliminarc/{{ comprador.id }}"> ElIMINAR</a></a></td>
+
+
+            
+        </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+
+{% else %}
+    <h2> No existe ningun comprador! </h2>
+{% endif %}
+
+
+{% endblock %}

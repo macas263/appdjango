@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %} LISTA DE ARTICULOS {% endblock %}
+
+{% block content %}
+
+{% if articulos %}
+<h2>Lista Articulos</h2>
+<a class ="btn btn-primary" href="{% url 'nuevo_articulo'%}"> Añadir </a>
+<table class="table table-striped table-hover">
+        <thead>
+            <th><h4>NOMBRE</h4></th>
+            <th><h4>PRECIO</h4></th>
+            <th><h4>DESCRIPCION</h4></th>
+            <th><h4>ARTICULO</h4></th>
+            <th><h4>OPCIONES</h4></th>
+
+        </thead>
+
+        <tbody>
+            
+        {% for articulo in articulos %}
+            <tr>
+            <td>{{articulo.nombre}}</td>
+            <td>{{articulo.precio}}</td>
+            <td>{{articulo.descripcion}}</td>       
+            <td> <img src="/{{articulo.foto_articulo}}" height="50px" width="50px" > </td>
+
+
+            <td><a class ="btn btn-success" href="/editar/{{ articulo.id }}"> EDITAR  <a class ="btn btn-info" href="/eliminar/{{ articulo.id }}"> ElIMINAR</a></a></td>
+
+
+            
+        </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+
+{% else %}
+    <h2> No existe ningun articulo! </h2>
+{% endif %}
+
+
+{% endblock %}
